@@ -1,0 +1,12 @@
+# Uvoz funkcij, ki jih bomo potrebovali
+
+library(knitr)
+library(readr)
+library(gsubfn)
+library(tidyr)
+library(xml2)
+library(proto)
+library(stringr)
+library(rvest)
+library(gridExtra)
+library(readxl)
