@@ -10,10 +10,11 @@ IDT_nike <- read_excel("Data-Nike/IDT_nike.xlsx", col_names = c("kategorija", 20
 #manjka IGK
 
 # PUMA
+IGK_puma <- read_excel("Data-Puma/IGK_puma.xlsx")
 
 bilanca_puma <- read_excel("Data-Puma/Bilanca_puma.xlsx", col_names = c("kategorija", 2019, 2018, 2017, 2016, 2015), 
                            na = "n.a.", skip = 1)
-row.names(bilanca_puma) <- bilanca_puma$kategorija
+
 
 IPI_puma <- read_excel("Data-Puma/IPI_puma.xlsx", col_names = c("kategorija", 2019, 2018, 2017, 2016, 2015), 
                        na = "n.a.", skip = 1)
@@ -21,7 +22,6 @@ IPI_puma <- read_excel("Data-Puma/IPI_puma.xlsx", col_names = c("kategorija", 20
 IDT_puma <- read_excel("Data-Puma/IDT_puma.xlsx", col_names = c("kategorija", 2019, 2018, 2017, 2016, 2015), 
                        na = "n.a.", skip = 1)
 
-IGK_puma <- read_excel("Data-Puma/IGK_puma.xlsx")
 
 
 
