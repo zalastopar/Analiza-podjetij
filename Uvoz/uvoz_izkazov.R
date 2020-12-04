@@ -2,13 +2,13 @@ library(readxl)
 # NIKE
 
 bilanca_nike <- data.frame(read_excel("Data-Nike/Bilanca_nike.xlsx", na = "n.a.", skip = 1), row.names = 1)
-colnames(bilanca_nike) <- c(2019, 2018, 2017, 2016)
+colnames(bilanca_nike) <- c(2019, 2018, 2017, 2016, 2015)
 
 IPI_nike <- data.frame(read_excel("Data-Nike/IPI_nike.xlsx", na = "n.a."), row.names = 1)
-colnames(IPI_nike) <- c(2019, 2018, 2017, 2016)
+colnames(IPI_nike) <- c(2019, 2018, 2017, 2016, 2015)
 
 IDT_nike <- data.frame(read_excel("Data-Nike/IDT_nike.xlsx", na = "n.a.", skip = 1), row.names = 1)
-colnames(IDT_nike) <- c(2019, 2018, 2017, 2016)
+colnames(IDT_nike) <- c(2019, 2018, 2017, 2016, 2015)
 
 #manjka IGK
 
@@ -33,7 +33,7 @@ IGK_puma <- read_excel("Data-Puma/IGK_puma.xlsx")
 # ADIDAS
 
 bilanca_adidas <- data.frame(read_excel("Data-Adidas/bilanca_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
-colnames(bilanca_adidas) <- c(2019, 2018, 2017, 2016)
+colnames(bilanca_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 
 IPI_adidas <- data.frame(read_excel("Data-Adidas/IPI_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
 colnames(IPI_adidas) <- c(2019, 2018, 2017, 2016, 2015)
