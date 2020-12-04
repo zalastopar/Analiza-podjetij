@@ -1,3 +1,6 @@
+# Razmerje med kratkorocnim terjatvami in kratkorocnimi obveznostmi iz poslovanja
+
+
 # Celotna gospodarnost - skupni prihodki/skupni odhodki
 time <- c(2019, 2018, 2017, 2016, 2015)
 time2 <- c(2019, 2018, 2017, 2016)
