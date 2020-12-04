@@ -1,3 +1,4 @@
+library(readxl)
 # NIKE
 
 bilanca_nike <- data.frame(read_excel("Data-Nike/Bilanca_nike.xlsx", na = "n.a.", skip = 1), row.names = 1)
