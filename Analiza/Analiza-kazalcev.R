@@ -72,29 +72,26 @@ text(x = c(2015.4, 2016.5, 2016.5), y = c(0.03,  0.15, 0.09), labels = c("Puma",
 # Razmerje med kratkorocnim terjatvami in kratkorocnimi obveznostmi iz poslovanja
 
 
-# Celotna gospodarnost - skupni prihodki/skupni odhodki
-time <- c(2019, 2018, 2017, 2016, 2015)
-time2 <- c(2019, 2018, 2017, 2016)
+# Delež osnovnih sredstev v sredstvih - (neopredmetena dolgoročna sredstva + opredmetena osnovna sredstva)/sredstva
 
 
-gospodarnosti_puma <- data.frame(t(rbind("Time" = time, "Revenue" = IPI_puma[1, ] + IPI_puma[6,],
-                                         "Expenses" = IPI_puma[2,] + IPI_puma[4,] + IPI_puma[7,] + IPI_puma[9,] + IPI_puma[11,])))
-gospodarnosti_puma$Ratio <- round(gospodarnosti_puma$Revenue/gospodarnosti_puma$Expenses, 2)
+os_puma <- data.frame(t(rbind("Time" = time, "Fixed assets" = bilanca_puma[3,] + bilanca_puma[4,],
+                                         "Assets" = bilanca_puma[11,])))
+os_puma$Ratio <- round(os_puma$Fixed.assets/os_puma$Assets, 2)
 
 
-gospodarnosti_nike <- data.frame(t(rbind("Time" = time, "Revenue" = IPI_nike[1,] + IPI_nike[6,],
-                                         "Expenses" = IPI_nike[2,] + IPI_nike[4,] + IPI_nike[7,] + IPI_nike[9,])))
-gospodarnosti_nike[2, 3] <- gospodarnosti_nike[2, 3] + IPI_nike[11,2]
-gospodarnosti_nike$Ratio <- round(gospodarnosti_nike$Revenue/gospodarnosti_nike$Expenses, 2)
+os_nike <- data.frame(t(rbind("Time" = time, "Fixed assets" = bilanca_nike[2,] + bilanca_nike[3,],
+                              "Assets" = bilanca_nike[10,])))
+os_nike$Ratio <- round(os_nike$Fixed.assets/os_nike$Assets, 2)
 
-gospodarnosti_adidas <- data.frame(t(rbind("Time" = time, "Revenue" = IPI_adidas[1, ] + IPI_adidas[6,],
-                                           "Expenses" = IPI_adidas[2,] + IPI_adidas[4,] + IPI_adidas[7,] + IPI_adidas[9,] + IPI_adidas[11,])))
-gospodarnosti_adidas$Ratio <- round(gospodarnosti_adidas$Revenue/gospodarnosti_adidas$Expenses, 2)
+os_adidas <- data.frame(t(rbind("Time" = time, "Fixed assets" = bilanca_adidas[3, ] + bilanca_adidas[4,],
+                                "Assets" = bilanca_adidas[11,])))
+os_adidas$Ratio <- round(os_adidas$Fixed.assets/os_adidas$Assets, 2)
 
-graf_gospodarnost <- plot(gospodarnosti_puma[, c(1, 4)], type = "l", col = "blue", main = "Celotna gospodarnost",
-                          ylim = c(1, 1.22), xlim = c(2015, 2019))
-lines(gospodarnosti_nike[, c(1, 4)], col = "pink")
-lines(gospodarnosti_adidas[, c(1, 4)], col = "green")
+graf_os <- plot(os_puma[, c(1, 4)], type = "l", col = "blue", main = "Delež osnovnih sredstev v sredstvih",
+                          ylim = c(0, 0.5), xlim = c(2015, 2019))
+lines(os_nike[, c(1, 4)], col = "pink")
+lines(os_adidas[, c(1, 4)], col = "green")
 text(x = c(2018.4, 2016.3, 2015.4), y = c(1.03,  1.16, 1.05), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 
@@ -122,5 +119,6 @@ graf_P_E_ratio <- plot(Puma_PE[, c(1, 4)], type = "l", ylab = "Ratio", xlab = "T
 lines(Nike_PE[, c(1,4)], type = "l", col = "pink")
 lines(Adidas_PE[, c(1, 4)], type = "l", col = "green")
 text(x = c(2016.4, 2018.75, 2018), y = c(60, 55, 28), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+
 
 
