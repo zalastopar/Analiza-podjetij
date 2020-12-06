@@ -1,8 +1,8 @@
 # Nastavitvena datoteka za Binder
 FROM jaanos/appr:base-2019
 
-ENV PROJECT_DIR ${HOME}/APPR-2019-20
-ENV PROJECT_FILE ${PROJECT_DIR}/APPR-2019-20.Rproj
+ENV PROJECT_DIR ${HOME}/Analiza-podjetij
+ENV PROJECT_FILE ${PROJECT_DIR}/Analiza-podjetij.Rproj
 ENV PROJECT_INSTALL ${PROJECT_DIR}/install.R
 ENV PROJECT_GITCONFIG ${PROJECT_DIR}/gitconfig
 
