@@ -62,15 +62,15 @@ ROA_puma <- data.frame(t(rbind("Time" = time2, "Net_income" = IPI_puma[12, 1:4],
 ROA_puma$Ratio <- round(ROA_puma$Net_income/ROA_puma$Assets, 2)
 
 # Povprečna sredstva-Nike
-p_s_2019_nike <- (bilanca_nike[10,1] + bilanca_adidas[10,2]) / 2
-p_s_2018_nike <- (bilanca_nike[10,2] + bilanca_adidas[10,3]) / 2
-p_s_2017_nike <- (bilanca_nike[10,3] + bilanca_adidas[10,4]) / 2
-p_s_2016_nike <- (bilanca_nike[10,4] + bilanca_adidas[10,5]) / 2
+p_s_2019_nike <- (bilanca_nike[10,1] + bilanca_nike[10,2]) / 2
+p_s_2018_nike <- (bilanca_nike[10,2] + bilanca_nike[10,3]) / 2
+p_s_2017_nike <- (bilanca_nike[10,3] + bilanca_nike[10,4]) / 2
+p_s_2016_nike <- (bilanca_nike[10,4] + bilanca_nike[10,5]) / 2
 povprecna_sredstva_nike <- cbind("2019" = p_s_2019_nike, "2018" = p_s_2018_nike, "2017" = p_s_2017_nike, "2016" = p_s_2016_nike)
 
 # ROA Nike
 ROA_nike <- data.frame(t(rbind("Time" = time2, "Net_income" = IPI_nike[12, 1:4],
-                               "Assets" = povprecna_sredstva_puma)))
+                               "Assets" = povprecna_sredstva_nike)))
 ROA_nike$Ratio <- round(ROA_nike$Net_income/ROA_nike$Assets, 2)
 
 # Povprečna sredstva-Adidas
@@ -87,10 +87,10 @@ ROA_adidas$Ratio <- round(ROA_adidas$Net_income/ROA_adidas$Assets, 2)
 
 # Graf dobičkonostnosti sredstev za vsa tri podjetja
 graf_ROA <- plot(ROA_puma[, c(1, 4)], type = "l", col = "blue", main = "Dobičkonostnost sredstev",
-                 ylim = c(0, 1.34), xlim = c(2015, 2019))
+                 ylim = c(0, 0.3), xlim = c(2016, 2019))
 lines(ROA_nike[, c(1, 4)], col = "pink")
 lines(ROA_adidas[, c(1, 4)], col = "green")
-text(x = c(2015.4, 2016.5, 2016.5), y = c(0.03,  1.15, 0.2), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+text(x = c(2018, 2017.5, 2017), y = c(0.02, 0.2, 0.1), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 # Marža (čisti dobiček(izguba) / prihodki)
 
@@ -135,15 +135,32 @@ asset_turnover_ratio_adidas$Ratio <- round(asset_turnover_ratio_adidas$Revenue/a
 
 # Graf za asset turnover ratio
 graf_asset_turnover_ratio <- plot(asset_turnover_ratio_puma[, c(1, 4)], type = "l", col = "blue", main = "Assets turnover ratio",
-                          ylim = c(1.3, 3), xlim = c(2015, 2019))
+                          ylim = c(1.3, 2), xlim = c(2015, 2019))
 lines(asset_turnover_ratio_nike[, c(1, 4)], col = "pink")
 lines(asset_turnover_ratio_adidas[, c(1, 4)], col = "green")
-text(x = c(2017.5, 2017.5, 2017), y = c(1.65,  2.75, 1.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+text(x = c(2018.5, 2018.5, 2018), y = c(1.5,  1.7, 1.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 
 
 # Razmerje med kratkorocnim terjatvami in kratkorocnimi obveznostmi iz poslovanja
+kt_ko_puma <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_puma[8,],
+                                 "Accounts payable" = bilanca_puma[22,] +  + bilanca_puma[23,])))
+kt_ko_puma$Ratio <- round(kt_ko_puma$Accounts.receivable/kt_ko_puma$Accounts.payable, 2)
 
+
+kt_ko_nike <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_nike[7,],
+                                 "Accounts payable" = bilanca_nike[21,] + bilanca_nike[22,])))
+kt_ko_nike$Ratio <- round(kt_ko_nike$Accounts.receivable/kt_ko_nike$Accounts.payable, 2)
+
+kt_ko_adidas <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_adidas[8, ],
+                                   "Accounts payable" = bilanca_adidas[22,] + bilanca_adidas[23,])))
+kt_ko_adidas$Ratio <- round(kt_ko_adidas$Accounts.receivable/kt_ko_adidas$Accounts.payable, 2)
+
+graf_kt_ko_ratio <- plot(kt_ko_puma[, c(1, 4)], type = "l", ylab = "Ratio", xlab = "Time", 
+                                           main = "Accounts receivable/Accounts payable", col = "blue", ylim = c(0.29, 0.7))
+lines(kt_ko_nike[, c(1,4)], type = "l", col = "pink")
+lines(kt_ko_adidas[, c(1, 4)], type = "l", col = "green")
+text(x = c(2017.4, 2018.5, 2016.2), y = c(0.52, 0.6, 0.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 # Delež osnovnih sredstev v sredstvih - (neopredmetena dolgoročna sredstva + opredmetena osnovna sredstva)/sredstva
 
