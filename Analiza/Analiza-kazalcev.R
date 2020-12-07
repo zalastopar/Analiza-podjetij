@@ -62,15 +62,15 @@ ROA_puma <- data.frame(t(rbind("Time" = time2, "Net_income" = IPI_puma[12, 1:4],
 ROA_puma$Ratio <- round(ROA_puma$Net_income/ROA_puma$Assets, 2)
 
 # Povprečna sredstva-Nike
-p_s_2019_nike <- (bilanca_nike[10,1] + bilanca_adidas[10,2]) / 2
-p_s_2018_nike <- (bilanca_nike[10,2] + bilanca_adidas[10,3]) / 2
-p_s_2017_nike <- (bilanca_nike[10,3] + bilanca_adidas[10,4]) / 2
-p_s_2016_nike <- (bilanca_nike[10,4] + bilanca_adidas[10,5]) / 2
+p_s_2019_nike <- (bilanca_nike[10,1] + bilanca_nike[10,2]) / 2
+p_s_2018_nike <- (bilanca_nike[10,2] + bilanca_nike[10,3]) / 2
+p_s_2017_nike <- (bilanca_nike[10,3] + bilanca_nike[10,4]) / 2
+p_s_2016_nike <- (bilanca_nike[10,4] + bilanca_nike[10,5]) / 2
 povprecna_sredstva_nike <- cbind("2019" = p_s_2019_nike, "2018" = p_s_2018_nike, "2017" = p_s_2017_nike, "2016" = p_s_2016_nike)
 
 # ROA Nike
 ROA_nike <- data.frame(t(rbind("Time" = time2, "Net_income" = IPI_nike[12, 1:4],
-                               "Assets" = povprecna_sredstva_puma)))
+                               "Assets" = povprecna_sredstva_nike)))
 ROA_nike$Ratio <- round(ROA_nike$Net_income/ROA_nike$Assets, 2)
 
 # Povprečna sredstva-Adidas
@@ -87,10 +87,10 @@ ROA_adidas$Ratio <- round(ROA_adidas$Net_income/ROA_adidas$Assets, 2)
 
 # Graf dobičkonostnosti sredstev za vsa tri podjetja
 graf_ROA <- plot(ROA_puma[, c(1, 4)], type = "l", col = "blue", main = "Dobičkonostnost sredstev",
-                 ylim = c(0, 1.34), xlim = c(2015, 2019))
+                 ylim = c(0, 0.3), xlim = c(2016, 2019))
 lines(ROA_nike[, c(1, 4)], col = "pink")
 lines(ROA_adidas[, c(1, 4)], col = "green")
-text(x = c(2015.4, 2016.5, 2016.5), y = c(0.03,  1.15, 0.2), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+text(x = c(2018, 2017.5, 2017), y = c(0.02, 0.2, 0.1), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 # Marža (čisti dobiček(izguba) / prihodki)
 
@@ -135,10 +135,10 @@ asset_turnover_ratio_adidas$Ratio <- round(asset_turnover_ratio_adidas$Revenue/a
 
 # Graf za asset turnover ratio
 graf_asset_turnover_ratio <- plot(asset_turnover_ratio_puma[, c(1, 4)], type = "l", col = "blue", main = "Assets turnover ratio",
-                          ylim = c(1.3, 3), xlim = c(2015, 2019))
+                          ylim = c(1.3, 2), xlim = c(2015, 2019))
 lines(asset_turnover_ratio_nike[, c(1, 4)], col = "pink")
 lines(asset_turnover_ratio_adidas[, c(1, 4)], col = "green")
-text(x = c(2017.5, 2017.5, 2017), y = c(1.65,  2.75, 1.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+text(x = c(2018.5, 2018.5, 2018), y = c(1.5,  1.7, 1.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 
 
