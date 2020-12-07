@@ -165,7 +165,7 @@ graf_os <- plot(os_puma[, c(1, 4)], type = "l", col = "blue", main = "Delež osn
                           ylim = c(0, 0.5), xlim = c(2015, 2019))
 lines(os_nike[, c(1, 4)], col = "pink")
 lines(os_adidas[, c(1, 4)], col = "green")
-text(x = c(2018.4, 2016.3, 2015.4), y = c(1.03,  1.16, 1.05), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+text(x = c(2015.3, 2016.3, 2018.4), y = c(0.3,  0.13, 0.33), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 
 # Kazalniki tržnih vrednosti - Razmerje med ceno delnice ter dobičkom na delnico (P/E ratio)
