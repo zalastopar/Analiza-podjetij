@@ -143,23 +143,23 @@ text(x = c(2018.5, 2018.5, 2018), y = c(1.5,  1.7, 1.4), labels = c("Puma", "Nik
 
 
 # Razmerje med kratkorocnim terjatvami in kratkorocnimi obveznostmi iz poslovanja
-kt_ko_puma <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_puma[8,],
+AR_AP_puma <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_puma[8,],
                                  "Accounts payable" = bilanca_puma[22,] +  + bilanca_puma[23,])))
-kt_ko_puma$Ratio <- round(kt_ko_puma$Accounts.receivable/kt_ko_puma$Accounts.payable, 2)
+AR_AP_puma$Ratio <- round(AR_AP_puma$Accounts.receivable/AR_AP_puma$Accounts.payable, 2)
 
 
-kt_ko_nike <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_nike[7,],
+AR_AP_nike <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_nike[7,],
                                  "Accounts payable" = bilanca_nike[21,] + bilanca_nike[22,])))
-kt_ko_nike$Ratio <- round(kt_ko_nike$Accounts.receivable/kt_ko_nike$Accounts.payable, 2)
+AR_AP_nike$Ratio <- round(AR_AP_nike$Accounts.receivable/AR_AP_nike$Accounts.payable, 2)
 
-kt_ko_adidas <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_adidas[8, ],
+AR_AP_adidas <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_adidas[8, ],
                                    "Accounts payable" = bilanca_adidas[22,] + bilanca_adidas[23,])))
-kt_ko_adidas$Ratio <- round(kt_ko_adidas$Accounts.receivable/kt_ko_adidas$Accounts.payable, 2)
+AR_AP_adidas$Ratio <- round(AR_AP_adidas$Accounts.receivable/AR_AP_adidas$Accounts.payable, 2)
 
-graf_kt_ko_ratio <- plot(kt_ko_puma[, c(1, 4)], type = "l", ylab = "Ratio", xlab = "Time", 
-                                           main = "Accounts receivable/Accounts payable", col = "blue", ylim = c(0.29, 0.7))
-lines(kt_ko_nike[, c(1,4)], type = "l", col = "pink")
-lines(kt_ko_adidas[, c(1, 4)], type = "l", col = "green")
+graf_kt_ko_ratio <- plot(AR_AP_puma[, c(1, 4)], type = "l", ylab = "Ratio", xlab = "Time", 
+                                           main = "AR/AP ratio", col = "blue", ylim = c(0.29, 0.7))
+lines(AR_AP_nike[, c(1,4)], type = "l", col = "pink")
+lines(AR_AP_adidas[, c(1, 4)], type = "l", col = "green")
 text(x = c(2017.4, 2018.5, 2016.2), y = c(0.52, 0.6, 0.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 # Delež osnovnih sredstev v sredstvih - (neopredmetena dolgoročna sredstva + opredmetena osnovna sredstva)/sredstva
