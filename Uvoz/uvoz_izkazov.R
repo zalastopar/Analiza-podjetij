@@ -43,10 +43,10 @@ colnames(IDT_adiadas) <- c(2019, 2018, 2017, 2016)
 
 #manjka IGK
 
-IGK_adidas_2019 <- data.frame(read_excel("Data-Adidas/IGK2019_Adidas.xls", na = "n.a", skip = 3, col_names = TRUE, n_max = 21))
+IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx", na = "n.a", skip = 4, col_names = TRUE))
 
 
 
-IGK_adidas_2018 <- data.frame(read_excel("Data-Adidas/IGK2018_Adidas.xlsx", na = "n.a", skip = 4,n_max = 27))
+
 
 
