@@ -143,7 +143,24 @@ text(x = c(2018.5, 2018.5, 2018), y = c(1.5,  1.7, 1.4), labels = c("Puma", "Nik
 
 
 # Razmerje med kratkorocnim terjatvami in kratkorocnimi obveznostmi iz poslovanja
+AR_AP_puma <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_puma[8,],
+                                 "Accounts payable" = bilanca_puma[22,] +  + bilanca_puma[23,])))
+AR_AP_puma$Ratio <- round(AR_AP_puma$Accounts.receivable/AR_AP_puma$Accounts.payable, 2)
 
+
+AR_AP_nike <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_nike[7,],
+                                 "Accounts payable" = bilanca_nike[21,] + bilanca_nike[22,])))
+AR_AP_nike$Ratio <- round(AR_AP_nike$Accounts.receivable/AR_AP_nike$Accounts.payable, 2)
+
+AR_AP_adidas <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_adidas[8, ],
+                                   "Accounts payable" = bilanca_adidas[22,] + bilanca_adidas[23,])))
+AR_AP_adidas$Ratio <- round(AR_AP_adidas$Accounts.receivable/AR_AP_adidas$Accounts.payable, 2)
+
+graf_kt_ko_ratio <- plot(AR_AP_puma[, c(1, 4)], type = "l", ylab = "Ratio", xlab = "Time", 
+                                           main = "AR/AP ratio", col = "blue", ylim = c(0.29, 0.7))
+lines(AR_AP_nike[, c(1,4)], type = "l", col = "pink")
+lines(AR_AP_adidas[, c(1, 4)], type = "l", col = "green")
+text(x = c(2017.4, 2018.5, 2016.2), y = c(0.52, 0.6, 0.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 # Delež osnovnih sredstev v sredstvih - (neopredmetena dolgoročna sredstva + opredmetena osnovna sredstva)/sredstva
 
@@ -165,7 +182,7 @@ graf_os <- plot(os_puma[, c(1, 4)], type = "l", col = "blue", main = "Delež osn
                           ylim = c(0, 0.5), xlim = c(2015, 2019))
 lines(os_nike[, c(1, 4)], col = "pink")
 lines(os_adidas[, c(1, 4)], col = "green")
-text(x = c(2018.4, 2016.3, 2015.4), y = c(1.03,  1.16, 1.05), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+text(x = c(2015.3, 2016.3, 2018.4), y = c(0.3,  0.13, 0.33), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 
 # Kazalniki tržnih vrednosti - Razmerje med ceno delnice ter dobičkom na delnico (P/E ratio)

@@ -41,9 +41,8 @@ colnames(IPI_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 IDT_adiadas <- data.frame(read_excel("Data-Adidas/IDT_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
 colnames(IDT_adiadas) <- c(2019, 2018, 2017, 2016)
 
-#manjka IGK
-
 IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx", na = "n.a", skip = 4, col_names = TRUE))
+
 
 
 
