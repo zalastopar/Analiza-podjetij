@@ -41,7 +41,15 @@ colnames(IPI_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 IDT_adiadas <- data.frame(read_excel("Data-Adidas/IDT_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
 colnames(IDT_adiadas) <- c(2019, 2018, 2017, 2016, 2015)
 
-IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx", na = "n.a", skip = 4, col_names = TRUE))
+
+IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx", skip = 4))
+IGK_adidas <- type.convert(IGK_adidas)
+# pretvorba valut
+#IGK_adidas[1:7, 2:10] <- round(IGK_adidas[1:7, 2:10] * 1.0887, 2)
+#IGK_adidas[8:14, 2:10] <- round(IGK_adidas[8:14, 2:10] * 1.0541, 2)
+#IGK_adidas[15:26, 2:10] <- round(IGK_adidas[15:26, 2:10] * 1.1993, 2)
+#IGK_adidas[27:38, 2:10] <- round(IGK_adidas[27:38, 2:10] * 1.145, 2)
+#IGK_adidas[39:47, 2:10] <- round(IGK_adidas[39:47, 2:10] * 1.1234, 2)
 
 
 
