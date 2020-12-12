@@ -26,7 +26,8 @@ colnames(IPI_puma) <- c(2019, 2018, 2017, 2016, 2015)
 IDT_puma <- data.frame(read_excel("Data-Puma/IDT_puma.xlsx", na = "n.a.", skip = 1), row.names = 1)
 colnames(IDT_puma) <- c(2019, 2018, 2017, 2016, 2015)
 
-IGK_puma <- read_excel("Data-Puma/IGK_puma.xlsx")
+IGK_puma <- data.frame(read_excel("Data-Puma/IGK_puma.xlsx"))
+IGK_puma <- type_convert(IGK_puma)
 
 
 
@@ -41,33 +42,22 @@ colnames(IPI_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 IDT_adiadas <- data.frame(read_excel("Data-Adidas/IDT_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
 colnames(IDT_adiadas) <- c(2019, 2018, 2017, 2016, 2015)
 
-<<<<<<< HEAD
 
-IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx", skip = 4))
-IGK_adidas <- type.convert(IGK_adidas)
+
+IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx"))
+IGK_adidas <- type_convert(IGK_adidas)
 # pretvorba valut
 #IGK_adidas[1:7, 2:10] <- round(IGK_adidas[1:7, 2:10] * 1.0887, 2)
 #IGK_adidas[8:14, 2:10] <- round(IGK_adidas[8:14, 2:10] * 1.0541, 2)
 #IGK_adidas[15:26, 2:10] <- round(IGK_adidas[15:26, 2:10] * 1.1993, 2)
 #IGK_adidas[27:38, 2:10] <- round(IGK_adidas[27:38, 2:10] * 1.145, 2)
 #IGK_adidas[39:47, 2:10] <- round(IGK_adidas[39:47, 2:10] * 1.1234, 2)
-=======
-<<<<<<< HEAD
-#manjka IGK
-
-IGK_adidas_2019 <- data.frame(read_excel("Data-Adidas/IGK2019_Adidas.xls", na = "n.a", skip = 3, col_names = TRUE, n_max = 21))
-
-
-
-IGK_adidas_2018 <- data.frame(read_excel("Data-Adidas/IGK2018_Adidas.xlsx", na = "n.a", skip = 4,n_max = 27))
-=======
-IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx", na = "n.a", skip = 4, col_names = TRUE))
->>>>>>> 27354e20ce79b66dbcbfda192e23bcbfdb2ccd2c
 
 
 
 
 
->>>>>>> upstream/main
+
+
 
 
