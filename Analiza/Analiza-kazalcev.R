@@ -157,10 +157,10 @@ AR_AP_adidas <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanc
 AR_AP_adidas$Ratio <- round(AR_AP_adidas$Accounts.receivable/AR_AP_adidas$Accounts.payable, 2)
 
 graf_kt_ko_ratio <- plot(AR_AP_puma[, c(1, 4)], type = "l", ylab = "Ratio", xlab = "Time", 
-                                           main = "AR/AP ratio", col = "blue", ylim = c(0.29, 0.7))
-lines(AR_AP_nike[, c(1,4)], type = "l", col = "pink")
-lines(AR_AP_adidas[, c(1, 4)], type = "l", col = "green")
-text(x = c(2017.4, 2018.5, 2016.2), y = c(0.52, 0.6, 0.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+                                           main = "AR/AP ratio", lwd = 2, col = "lightskyblue", ylim = c(0.29, 0.7))
+lines(AR_AP_nike[, c(1,4)], type = "l", col = "hotpink", lwd = 2)
+lines(AR_AP_adidas[, c(1, 4)], type = "l", col = "palegreen", lwd = 2)
+text(x = c(2017.4, 2018.5, 2016.2), y = c(0.52, 0.6, 0.4), labels = c("Puma", "Nike", "Adidas"), col = c("lightskyblue", "hotpink", "palegreen"))
 
 # Delež osnovnih sredstev v sredstvih - (neopredmetena dolgoročna sredstva + opredmetena osnovna sredstva)/sredstva
 
@@ -178,11 +178,11 @@ os_adidas <- data.frame(t(rbind("Time" = time, "Fixed assets" = bilanca_adidas[3
                                 "Assets" = bilanca_adidas[11,])))
 os_adidas$Ratio <- round(os_adidas$Fixed.assets/os_adidas$Assets, 2)
 
-graf_os <- plot(os_puma[, c(1, 4)], type = "l", col = "blue", main = "Delež osnovnih sredstev v sredstvih",
-                          ylim = c(0, 0.5), xlim = c(2015, 2019))
-lines(os_nike[, c(1, 4)], col = "pink")
-lines(os_adidas[, c(1, 4)], col = "green")
-text(x = c(2015.3, 2016.3, 2018.4), y = c(0.3,  0.13, 0.33), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+graf_os <- plot(os_puma[, c(1, 4)], type = "l", col = "lightskyblue", main = "Delež osnovnih sredstev v sredstvih",
+                          ylim = c(0, 0.5), xlim = c(2015, 2019), lwd = 2)
+lines(os_nike[, c(1, 4)], col = "hotpink", lwd = 2)
+lines(os_adidas[, c(1, 4)], col = "palegreen", lwd = 2)
+text(x = c(2015.3, 2016.3, 2018.4), y = c(0.3,  0.13, 0.33), labels = c("Puma", "Nike", "Adidas"), col = c("lightskyblue", "hotpink", "palegreen"))
 
 
 # Kazalniki tržnih vrednosti - Razmerje med ceno delnice ter dobičkom na delnico (P/E ratio)
@@ -205,10 +205,10 @@ Adidas_PE$Ratio <- round(Adidas_PE$Stock.price/Adidas_PE$EPS, 2)
 
 
 graf_P_E_ratio <- plot(Puma_PE[, c(1, 4)], type = "l", ylab = "Ratio", xlab = "Time", 
-                       main = "p/E ratio", col = "blue", ylim = c(19, 65))
-lines(Nike_PE[, c(1,4)], type = "l", col = "pink")
-lines(Adidas_PE[, c(1, 4)], type = "l", col = "green")
-text(x = c(2016.4, 2018.75, 2018), y = c(60, 55, 28), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+                       main = "p/E ratio", col = "lightskyblue", ylim = c(19, 65), lwd = 2)
+lines(Nike_PE[, c(1,4)], type = "l", col = "hotpink", lwd = 2)
+lines(Adidas_PE[, c(1, 4)], type = "l", col = "palegreen", lwd = 2)
+text(x = c(2016.4, 2018.75, 2018), y = c(60, 55, 28), labels = c("Puma", "Nike", "Adidas"), col = c("lightskyblue", "hotpink", "palegreen"))
 
 
 
