@@ -142,7 +142,7 @@ text(x = c(2018.5, 2018.5, 2018), y = c(1.5,  1.7, 1.4), labels = c("Puma", "Nik
 
 
 
-# Razmerje med kratkorocnim terjatvami in kratkorocnimi obveznostmi iz poslovanja
+# Razmerje med kratkorocnimi terjatvami in kratkorocnimi obveznostmi iz poslovanja
 AR_AP_puma <- data.frame(t(rbind("Time" = time, "Accounts receivable" = bilanca_puma[8,],
                                  "Accounts payable" = bilanca_puma[22,] +  + bilanca_puma[23,])))
 AR_AP_puma$Ratio <- round(AR_AP_puma$Accounts.receivable/AR_AP_puma$Accounts.payable, 2)
