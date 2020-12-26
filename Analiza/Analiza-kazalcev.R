@@ -4,10 +4,10 @@ time <- c(2019, 2018, 2017, 2016, 2015)
 time2 <- c(2019, 2018, 2017, 2016)
 
 # Povprečni kapital-Puma
-p_k_2019_puma <- (sum(bilanca_puma[13 : 15,1]) + sum(bilanca_puma[13 : 15,2])) / 2
-p_k_2018_puma <- (sum(bilanca_puma[13 : 15,2]) + sum(bilanca_puma[13 : 15,3])) / 2
-p_k_2017_puma <- (sum(bilanca_puma[13 : 15,3]) + sum(bilanca_puma[13 : 15,4])) / 2
-p_k_2016_puma <- (sum(bilanca_puma[13 : 15,4]) + sum(bilanca_puma[13 : 15,5])) / 2
+p_k_2019_puma <- (sum(bilanca_puma[13,1]) + sum(bilanca_puma[13,2])) / 2
+p_k_2018_puma <- (sum(bilanca_puma[13,2]) + sum(bilanca_puma[13,3])) / 2
+p_k_2017_puma <- (sum(bilanca_puma[13,3]) + sum(bilanca_puma[13,4])) / 2
+p_k_2016_puma <- (sum(bilanca_puma[13,4]) + sum(bilanca_puma[13,5])) / 2
 povprecni_kapital_puma <- cbind("2019" = p_k_2019_puma, "2018" = p_k_2018_puma, "2017" = p_k_2017_puma, "2016"= p_k_2016_puma)
 
 # ROE Puma 
@@ -16,10 +16,10 @@ ROE_puma <- data.frame(t(rbind("Time" = time2 , "Net_income" = IPI_puma[12,1 : 4
 ROE_puma$Ratio <- round(ROE_puma$Net_income/ROE_puma$Capital, 2)
 
 # Povprečni kapital-Nike
-p_k_2019_nike <- (sum(bilanca_nike[12 : 14,1]) + sum(bilanca_nike[12 : 14,2])) / 2
-p_k_2018_nike <- (sum(bilanca_nike[12 : 14,2]) + sum(bilanca_nike[12 : 14,3])) / 2
-p_k_2017_nike <- (sum(bilanca_nike[12 : 14,3]) + sum(bilanca_nike[12 : 14,4])) / 2
-p_k_2016_nike <- (sum(bilanca_nike[12 : 14,4]) + sum(bilanca_nike[12 : 14,5])) / 2
+p_k_2019_nike <- (sum(bilanca_nike[13 : 14,1]) + sum(bilanca_nike[13 : 14,2])) / 2
+p_k_2018_nike <- (sum(bilanca_nike[13 : 14,2]) + sum(bilanca_nike[13 : 14,3])) / 2
+p_k_2017_nike <- (sum(bilanca_nike[13 : 14,3]) + sum(bilanca_nike[13 : 14,4])) / 2
+p_k_2016_nike <- (sum(bilanca_nike[13 : 14,4]) + sum(bilanca_nike[13 : 14,5])) / 2
 povprecni_kapital_nike <- cbind("2019" = p_k_2019_nike, "2018" = p_k_2018_nike, "2017" = p_k_2017_nike, "2016"= p_k_2016_nike)
 
 # ROE Nike
@@ -41,10 +41,10 @@ ROE_adidas$Ratio <- round(ROE_adidas$Net_income/ROE_adidas$Capital, 2)
 
 # Graf za ROE za vsa tri podjetja
 graf_ROE <- plot(ROE_puma[, c(1, 4)], type = "l", col = "blue", main = "Dobičkonostnost kapitala",
-                          ylim = c(0, 0.2), xlim = c(2015, 2019))
+                          ylim = c(0, 0.45), xlim = c(2016, 2019))
 lines(ROE_adidas[, c(1, 4)], col = "green")
 lines(ROE_nike[, c(1, 4)], col = "pink")
-text(x = c(2015.4, 2016.5, 2016.5), y = c(0.03,  0.15, 0.09), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
+text(x = c(2016.4, 2016.5, 2016.5), y = c(0.04,  0.35, 0.11), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
 
 
 # Dobičkonostnost sredstev ali ROA(čisti dobiček / povprečna sredstva)
@@ -135,7 +135,7 @@ asset_turnover_ratio_adidas$Ratio <- round(asset_turnover_ratio_adidas$Revenue/a
 
 # Graf za asset turnover ratio
 graf_asset_turnover_ratio <- plot(asset_turnover_ratio_puma[, c(1, 4)], type = "l", col = "blue", main = "Assets turnover ratio",
-                          ylim = c(1.3, 2), xlim = c(2015, 2019))
+                          ylim = c(1.3, 1.9), xlim = c(2016, 2019))
 lines(asset_turnover_ratio_nike[, c(1, 4)], col = "pink")
 lines(asset_turnover_ratio_adidas[, c(1, 4)], col = "green")
 text(x = c(2018.5, 2018.5, 2018), y = c(1.5,  1.7, 1.4), labels = c("Puma", "Nike", "Adidas"), col = c("blue", "pink", "green"))
