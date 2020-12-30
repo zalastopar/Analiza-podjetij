@@ -27,7 +27,7 @@ IDT_puma <- data.frame(read_excel("Data-Puma/IDT_puma.xlsx", na = "n.a.", skip =
 colnames(IDT_puma) <- c(2019, 2018, 2017, 2016, 2015)
 
 IGK_puma <- data.frame(read_excel("Data-Puma/IGK_puma.xlsx"))
-IGK_puma <- type_convert(IGK_puma)
+IGK_puma <- type.convert(IGK_puma)
 
 
 
@@ -44,8 +44,12 @@ colnames(IDT_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 
 
 
+
+#manjka IGK
+
+
 IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx"))
-IGK_adidas <- type_convert(IGK_adidas)
+IGK_adidas <- type.convert(IGK_adidas)
 # pretvorba valut
 IGK_adidas[1:7, 2:9] <- round(IGK_adidas[1:7, 2:9] * 1.0887, 2)
 IGK_adidas[8:14, 2:9] <- round(IGK_adidas[8:14, 2:9] * 1.0541, 2)
@@ -54,11 +58,20 @@ IGK_adidas[27:38, 2:9] <- round(IGK_adidas[27:38, 2:9] * 1.145, 2)
 IGK_adidas[39:47, 2:9] <- round(IGK_adidas[39:47, 2:9] * 1.1234, 2)
 
 
+<<<<<<< HEAD
 # shranimo urejene izkaze kot exel tabele
 write.xlsx(bilanca_adidas, "Urejene-tabele/Bilanca_adidas.xlsx", col.names = TRUE, row.names = TRUE)
 write.xlsx(IPI_adidas, "Urejene-tabele/IPI_adidas.xlsx", col.names = TRUE, row.names = TRUE)
 write.xlsx(IDT_adidas, "Urejene-tabele/IDT_adidas.xlsx", col.names = TRUE, row.names = TRUE)
 write.xlsx(IGK_adidas, "Urejene-tabele/IGK_adidas.xlsx", col.names = TRUE, row.names = TRUE)
+=======
+IGK_adidas <- data.frame(read_excel("Data-Adidas/IGK_Adidas.xlsx", na = "n.a", skip = 4, col_names = TRUE))
+
+
+
+
+
+>>>>>>> 95796baae93266fc2a9b36bce87fcde95757837d
 
 
 

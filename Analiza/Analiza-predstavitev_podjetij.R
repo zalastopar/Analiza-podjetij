@@ -1,3 +1,4 @@
+library(ggplot2)
 # Puma
 
 # prodaja
@@ -11,14 +12,14 @@ kolacnik_prodaja <- ggplot(prodaja, aes(x = "", y = value, fill = thing)) +
 
 png("Graphs/prodaja.png", height =157 , width = 268)
 print(kolacnik_prodaja)
-dev.off()
+#dev.off()
 
 # net earnings
 sales <- data.frame("Year" = c(2019:2010), 
                       "value" = c(5502.2, 4648.3, 4135.9, 3626.7, 3387.4, 2972.0, 2985.3, 3270.7, 3009.0, 2706.4))
 png("Graphs/sales_since_2010.png")
 graf_net_ear <- plot(sales, type = "l", ylab = "[mio €]", col = "hotpink", lwd = 2, main = "Sales through time")
-dev.off()
+#dev.off()
 
 # waste
 waste <- data.frame("Year" = c(2019:2015), 
@@ -26,4 +27,4 @@ waste <- data.frame("Year" = c(2019:2015),
 
 png("Graphs/waste.png")
 graph_waste <- plot(waste, type = "l", col = "palegreen", lwd = 2, main = "Waste through time", ylab = "Waste [tons]")
-dev.off()               
+#dev.off()               
