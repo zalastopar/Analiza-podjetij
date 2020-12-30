@@ -39,8 +39,8 @@ colnames(bilanca_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 IPI_adidas <- data.frame(read_excel("Data-Adidas/IPI_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
 colnames(IPI_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 
-IDT_adiadas <- data.frame(read_excel("Data-Adidas/IDT_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
-colnames(IDT_adiadas) <- c(2019, 2018, 2017, 2016, 2015)
+IDT_adidas <- data.frame(read_excel("Data-Adidas/IDT_adidas.xlsx", na = "n.a.", skip = 1), row.names = 1)
+colnames(IDT_adidas) <- c(2019, 2018, 2017, 2016, 2015)
 
 
 
@@ -54,10 +54,11 @@ IGK_adidas[27:38, 2:9] <- round(IGK_adidas[27:38, 2:9] * 1.145, 2)
 IGK_adidas[39:47, 2:9] <- round(IGK_adidas[39:47, 2:9] * 1.1234, 2)
 
 
-
-
-
-
+# shranimo urejene izkaze kot exel tabele
+write.xlsx(bilanca_adidas, "Urejene-tabele/Bilanca_adidas.xlsx", col.names = TRUE, row.names = TRUE)
+write.xlsx(IPI_adidas, "Urejene-tabele/IPI_adidas.xlsx", col.names = TRUE, row.names = TRUE)
+write.xlsx(IDT_adidas, "Urejene-tabele/IDT_adidas.xlsx", col.names = TRUE, row.names = TRUE)
+write.xlsx(IGK_adidas, "Urejene-tabele/IGK_adidas.xlsx", col.names = TRUE, row.names = TRUE)
 
 
 
